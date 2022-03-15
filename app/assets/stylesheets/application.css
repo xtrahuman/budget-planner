@@ -14,27 +14,24 @@
  *= require_self
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nova+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nova+Round&display=swap');
 
+.button-ht {
+  height: 100vh;
+  font-family: 'Nova Round', Helvetica, sans-serif;
+  color: #434b54;
+}
 
+.button-ht h1 {
+  font-family: 'Lobster', Helvetica, sans-serif;
+  font-size: 44px;
+}
 
- .button-ht{
-     height: 100vh;
-     font-family: 'Nova Round', Helvetica, sans-serif;
-     color: #434b54;
- }
+.add-mb {
+  margin-bottom: 30px;
+}
 
- .button-ht h1{
-    font-family: 'Lobster', Helvetica, sans-serif;
-   font-size: 44px;
- }
-
- .add-mb {
-     margin-bottom: 30px;
- }
-
- button a {
-     display: block;
-     width: 100%;
- }
-
+button a {
+  display: block;
+  width: 100%;
+}
