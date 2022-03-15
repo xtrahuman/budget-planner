@@ -1,0 +1,19 @@
+
+            <% if user_signed_in? %>
+             <p>categories</p>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            <% else %>
+            <div class="d-flex button-ht flex-column  align-items-center">
+            <div class="h-50 d-flex flex-column justify-content-end add-mb">
+            <h1 class= "text-center">Budget Planner</h1>
+            </div>
+            <div class="w-75 h-50 d-flex flex-column justify-content-end add-mb">
+            <button type="button" class="btn btn-primary mb-2 btn-lg btn-block w-100 ">
+            <%= link_to "Login", new_user_session_path, class: "text-decoration-none text-light w-100" %>
+            </button>
+            <button type="button" class="btn btn-light border-primary btn-lg mb-4 btn-block a-w w-100">
+            <%= link_to "Sign up", new_user_registration_path, class: "text-decoration-none text-dark w-100" %>
+            </button>
+            </div>
+            </div>
+            <% end %>
