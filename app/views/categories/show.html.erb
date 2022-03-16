@@ -1,0 +1,32 @@
+               <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="back-arrow">
+                  <%= link_to embedded_svg('left1.svg'), categories_path  %>
+                  </span>
+                </button>
+                <a class="navbar-brand d-flex w-100 brand-a" href="#">Products</a>
+                </nav>
+             <% if @items.empty? %>
+             <p class="content-margin" >there are no items</p>
+             <%else%>
+             <%@items.each do |item| %>
+             <div class="d-flex content-margin justify-content-center">
+            <div class="row card-t">
+              <div class="col-3 d-flex justify-content-start">
+                <div class="card-photo">
+                <%= image_tag "cover-photo.jpg", alt: "user", class: "user_image" %>
+                </div>
+              </div>
+               <div class="col-9">
+                  <div class="card-body place-items-start ">
+                    <h5 class="card-title"><%= link_to item.name, categories_path %></h5>
+                    <p class="card-text text-right">cost:<span class="mx-2"><%=item.amount || 0%></span></p>
+                  </div>
+                </div>
+            </div>
+            </div>
+             <%end %>
+            <button type="button" class="btn button-pad button-green btn-lg btn-block w-100 fixed-bottom">
+            <%= link_to "Add New Item", new_category_item_path(:catgory_id), class: "text-decoration-none text-light w-100" %>
+            </button>
+             <%end %>
