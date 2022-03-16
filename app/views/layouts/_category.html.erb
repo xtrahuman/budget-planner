@@ -1,7 +1,51 @@
 
             <% if user_signed_in? %>
-             <p>categories</p>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+             
+             <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand d-flex w-100 brand-a" href="#">categories</a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                    <a class="nav-link"><%= @author.name%></a>
+                    <a class="nav-link" href="#"> Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Create Category</a>
+                    </li>
+                    <li class="nav-item">
+                     <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link"  %>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+             <% if @categories.empty? %>
+             <p class="content-margin" >there are no categories</p>
+             <%else%>
+             <%@categories.each do |category| %>
+             <div class="d-flex content-margin justify-content-center">
+            <div class="row card-t">
+              <div class="col-3 d-flex justify-content-start">
+                <div class="card-photo">
+                <%= image_tag "cover-photo.jpg", alt: "user", class: "user_image" %>
+                </div>
+              </div>
+               <div class="col-9">
+                  <div class="card-body place-items-start ">
+                    <h5 class="card-title"><%= link_to category.name, category_path(category) %></h5>
+                    <p class="card-text text-right">cost:<span class="mx-2"></span></p>
+                  </div>
+                </div>
+            </div>
+            </div>
+            <button type="button" class="btn button-pad button-green btn-lg btn-block w-100 fixed-bottom">
+            <%= link_to "Create Category", new_user_session_path, class: "text-decoration-none text-light w-100" %>
+            </button>
+             <%end %>
+             <%end %>
             <% else %>
             <div class="d-flex button-ht flex-column  align-items-center">
             <div class="h-50 d-flex flex-column justify-content-end add-mb">

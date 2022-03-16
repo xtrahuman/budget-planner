@@ -22,6 +22,19 @@
   color: #434b54;
 }
 
+.content-margin {
+    margin-top: 80px;
+}
+
+.button-pad {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.button-green {
+    background-color: #5fb523;
+}
+
 .button-ht h1 {
   font-family: 'Lobster', Helvetica, sans-serif;
   font-size: 44px;
@@ -34,4 +47,41 @@
 button a {
   display: block;
   width: 100%;
+}
+
+.card-t {
+  background-color: #fff;
+  display: flex;
+  justify-self: center;
+  width : 80%;
+  border-radius: 5px;
+  filter: drop-shadow(0 8px 16px rgb(74, 156, 211, 0.48));
+}
+
+.user_image {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 80px;
+    height: 88px;
+}
+
+.col-3 {
+    padding: 0;
+}
+
+.navbar {
+    position: fixed;
+}
+
+.navbar-toggler {
+    z-index: 2;
+}
+
+a.brand-a {
+   position: absolute;
+   text-align: center;
+   left: 0;
+   top: 0;
+   justify-content: center;
+   margin-top: 5px;
 }
