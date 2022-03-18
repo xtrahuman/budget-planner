@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
    # GET /category/1
    def show
     @category = Category.find(params[:id])
-    @items = @category.items
+    @items = @category.items.order('created_at DESC')
     @total_amount = @items.map(&:amount).sum
   end
 
