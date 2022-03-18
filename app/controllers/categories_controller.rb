@@ -2,15 +2,15 @@ class CategoriesController < ApplicationController
   def index
     @author = current_user
     @categories = Category.all
-    @total_amount = @author.items.includes(:category).map(&:amount).sum if user_signed_in? 
+    @total_amount = @author.items.includes(:category).map(&:amount).sum if user_signed_in?
   end
 
   def new
-      @category = Category.new
+    @category = Category.new
   end
 
-   # GET /category/1
-   def show
+  # GET /category/1
+  def show
     @category = Category.find(params[:id])
     @items = @category.items.order('created_at DESC')
     @total_amount = @items.map(&:amount).sum

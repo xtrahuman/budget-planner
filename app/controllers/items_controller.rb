@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-def new
+  def new
     @item = Item.new
     @category = Category.find(params[:category_id])
-end
+  end
 
-def destroy
+  def destroy
     @item = Item.find(params[:id])
     @item.destroy
     respond_to do |format|
@@ -12,22 +12,22 @@ def destroy
     end
   end
 
-def create
+  def create
     @item = current_user.items.new(item_params)
     @category = Category.find(params[:category_id])
     @item.user_id = current_user.id
     @item.category_id = @category.id
 
     respond_to do |format|
-        if @item.save
-          format.html { redirect_to category_path(@category), notice: 'items was created successfully.' }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-        end
+      if @item.save
+        format.html { redirect_to category_path(@category), notice: 'items was created successfully.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
       end
-end
+    end
+  end
 
-def item_params
+  def item_params
     params.require(:item).permit(:name, :amount)
-end
+  end
 end

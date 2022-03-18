@@ -18,8 +18,8 @@ RSpec.describe 'Category Show', type: :feature do
     end
 
     it 'can see the page' do
-        expect(page).to have_content('Items Page')
-      end
+      expect(page).to have_content('Items Page')
+    end
 
     it 'shows item title' do
       expect(page).to have_content('Test items 1')
@@ -30,6 +30,5 @@ RSpec.describe 'Category Show', type: :feature do
       expect(page).to have_content('Items Costs')
       expect(page).to have_content('60')
     end
-    
   end
 end

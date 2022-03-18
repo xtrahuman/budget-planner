@@ -1,4 +1,4 @@
-/* 
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -11,17 +11,17 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self 
+ *= require_self
  *= require font-awesome */
+
 /*
  *= require font-awesome
  */
- 
+
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nova+Round&display=swap');
 
-
 body {
-    background-color: #F9F8F8;
+  background-color: #f9f8f8;
 }
 
 .button-ht {
@@ -32,37 +32,32 @@ body {
 }
 
 .container-custom {
-    height: 90vh;
-    overflow-y: auto;
+  height: 90vh;
+  overflow-y: auto;
 }
 
 .content-margin {
-    margin-top: 28px;
+  margin-top: 28px;
 }
 
-.back-arrow svg{
-    color: #fff;
-    height: 25px;
-    width: 25px;
+.back-arrow svg {
+  color: #fff;
+  height: 25px;
+  width: 25px;
 }
-
-/* .content-margin:nth-child(1) {
-    margin-top: 0;
-    padding-top: 88px;
-} */
 
 .content-margin:last-child {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .button-pad {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .button-green {
-    background-color: #5fb523;
-    color: #fff;
+  background-color: #5fb523;
+  color: #fff;
 }
 
 .button-ht h1 {
@@ -83,102 +78,101 @@ button a {
   background-color: #fff;
   display: flex;
   justify-self: center;
-  width : 85%;
+  width: 85%;
   border-radius: 5px;
-  filter: drop-shadow( 0px 4px 8px rgb(215, 209, 220));
+  filter: drop-shadow(0 4px 8px rgb(215, 209, 220));
 }
 
 .total-lay {
-    background-color: #fff;
-    padding: 60px 10px 0 10px;
+  background-color: #fff;
+  padding: 60px 10px 0 10px;
 }
 
 .user_image {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    width: 80px;
-    height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 80px;
+  height: 100%;
 }
 
 .col-3 {
-    padding: 0;
+  padding: 0;
 }
 
 .navbar {
-    position: fixed;
+  position: fixed;
 }
 
 .navbar-toggler {
-    z-index: 2;
+  z-index: 2;
 }
 
 a.brand-a {
-   position: absolute;
-   text-align: center;
-   left: 0;
-   top: 0;
-   justify-content: center;
-   margin-top: 5px;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  margin-top: 5px;
 }
 
 .anchor {
-    position: relative;
+  position: relative;
 }
 
 .anchor a {
-    position: absolute;
-    display: block;
-    width: 100;
-    padding: 0;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right:0;
-    color: transparent;
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: transparent;
 }
 
 .trash-fill {
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
-    z-index: 2;
-    width: 20px;
-    height: 20px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
 }
 
 .trash-fill button {
-   border: none;
-   color: transparent;
-   padding: 0;
-   height: 0;
-   width: 0;
+  border: none;
+  color: transparent;
+  padding: 0;
+  height: 0;
+  width: 0;
 }
 
-
-.trash-fill svg{
-    color: #d8515e;
-    height: 20px;
-    width: 20px;
+.trash-fill svg {
+  color: #d8515e;
+  height: 20px;
+  width: 20px;
 }
 
 .trash-fill svg:hover {
-    color: #DC3545;
+  color: #dc3545;
 }
 
 .notice-alert {
-    top: 50px;
-    position: fixed;
-    z-index: 1031;
+  top: 50px;
+  position: fixed;
+  z-index: 1031;
 }
 
 .dark-blue {
- background-color: #3778c2;
+  background-color: #3778c2;
 }
 
 .border-blue {
-    border-color: #3778c2;
+  border-color: #3778c2;
 }
 
 .form-margin {
-    margin-top: 88px
+  margin-top: 88px;
 }

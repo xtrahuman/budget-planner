@@ -53,7 +53,7 @@ gem 'devise'
 gem 'cancancan'
 
 # rails icon
-gem "primer_view_components"
+gem 'primer_view_components'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
