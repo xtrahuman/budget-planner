@@ -23,10 +23,11 @@
               </nav>
             <div class="container-custom">
             <%= render "layouts/total_balance", desc: "Total Budget", total_amount: @total_amount %>
-             <% if @categories.empty? %>
+             <% if current_user.categories.empty? %>
              <p class="content-margin text-center" >Kindly create a category to start your budget plan</p>
              <%else%>
              <%@categories.each do |category| %>
+            <% if can? :read, category%>
           <div class="d-flex content-margin justify-content-center">
             <div class="row anchor card-t">
              
@@ -48,6 +49,7 @@
                   <%= link_to "link to items", category_path(category)%>
               </div>
              </div>
+             <%end %>
              <%end %>
              <%end %>
             <button type="button" class="btn button-pad button-green btn-lg btn-block w-100 fixed-bottom">

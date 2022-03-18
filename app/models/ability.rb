@@ -10,7 +10,7 @@ class Ability
     else
       can :manage, Category, user_id: user.id
       can :manage, Item, user_id: user.id
-      can :read, :all
+      # can :read, :all
     end
     #
     # The first argument to `can` is the action you are giving the user

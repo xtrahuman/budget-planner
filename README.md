@@ -5,6 +5,14 @@
 
 > This helps users to plan several budgets which can be grouped into categories, Users can create new categories of which they can make a budget plan, by clicking on a category a user can create a new item with the amount they want to allocate for that item.
 
+Mobile Landing page                      |  Mobile sign up
+:---------------------------------------:|:---------------------------------------:
+![](./public-img/landing.PNG)            |  ![](./public-img/signup.PNG)
+
+Mobile Categories page                   |  Mobile Items page
+:---------------------------------------:|:---------------------------------------:
+![](./public-img/category-page.PNG)      |  ![](./public-img/items-page.PNG)
+
 
 ## Built With
 
@@ -21,6 +29,14 @@
 - Sqlite3
 - Postgresql
 - Git
+
+## demo
+
+[heroku](https://immense-bastion-80345.herokuapp.com/)
+
+## Live Video
+
+
 
 
 ## Getting Started
