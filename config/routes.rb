@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   end
   # resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
   resources :categories do
-    resources :items, except: [ :index, :show ]
+    resources :items, only: %i[create new destroy]
   end
   # Defines the root path route ("/")
   root 'categories#index'
