@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @item = Item.new
     @category = Category.find(params[:category_id])
