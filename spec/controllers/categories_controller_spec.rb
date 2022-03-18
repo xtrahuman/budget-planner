@@ -13,5 +13,4 @@ RSpec.describe 'Categories', type: ['request'] do
       expect(response.body).to include('Budget Planner')
     end
   end
-
 end
