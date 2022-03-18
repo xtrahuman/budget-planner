@@ -7,7 +7,7 @@
 
 Mobile Landing page                      |  Mobile sign up
 :---------------------------------------:|:---------------------------------------:
-![](./public-img/landing.PNG)            |  ![](./public-img/signup.PNG)
+![](./public-img/Landing.PNG)            |  ![](./public-img/signup.PNG)
 
 Mobile Categories page                   |  Mobile Items page
 :---------------------------------------:|:---------------------------------------:
