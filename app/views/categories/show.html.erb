@@ -1,8 +1,8 @@
-            <%= render "layouts/nav", check: "Products Page", goto_path: categories_path %>
+            <%= render "layouts/nav", check: "Items Page", goto_path: categories_path %>
             <%= render "layouts/total_balance", desc: "Items Costs", total_amount: @total_amount %>
             <div class="container-custom">
              <% if @items.empty? %>
-             <p class="content-margin text-center" >there are no items</p>
+             <p class="content-margin text-center" >there are no items in this category</p>
              <%else%>
              <%@items.each do |item| %>
             <div class="d-flex content-margin justify-content-center">
