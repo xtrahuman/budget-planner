@@ -1,11 +1,13 @@
-<section class="container col-8">
-  <%= form_with(model: item) do |form| %>
-    <% if item.errors.any? %>
+ <%= render "layouts/nav", check: "Add New Item", goto_path: categories_path %>
+<section class="container-custom">
+<div class="container col-8 form-margin">
+  <%= form_with model: @item, url: [@category, @item] do |form| %>
+    <% if @item.errors.any? %>
       <div style="color: red">
-        <h2><%= pluralize(item.errors.count, "error") %> prohibited this category from being saved:</h2>
+        <h2><%= pluralize(@item.errors.count, "error") %> prohibited this category from being saved:</h2>
 
         <ul>
-          <% item.errors.each do |error| %>
+          <% @item.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
@@ -17,8 +19,14 @@
       <%= form.text_field :name, class: "form-control" %>
     </div>
 
-    <div class="text-center">
-      <%= form.submit class: "btn btn-warning" %>
+    <div class="mb-3">
+      <%= form.label :amount, style: "display: block" %>
+      <%= form.text_field :amount, class: "form-control" %>
+    </div>
+
+    <div class="text-left">
+      <%= form.submit class: "btn button-green" %>
     </div>
   <% end %>
+</div>
 </section>

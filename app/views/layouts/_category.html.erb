@@ -1,7 +1,7 @@
 
             <% if user_signed_in? %>
-             
-             <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+              
+             <nav class="navbar navbar-expand-lg fixed-top navbar-dark dark-blue">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -11,10 +11,9 @@
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
                     <a class="nav-link"><%= @author.name%></a>
-                    <a class="nav-link" href="#"> Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Create Category</a>
+                      <%= link_to "Create Category", new_category_path, class: "text-decoration-none nav-link" %>
                     </li>
                     <li class="nav-item">
                      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link"  %>
@@ -22,40 +21,49 @@
                   </ul>
                 </div>
               </nav>
+            <div class="container-custom">
+            <%= render "layouts/total_balance", desc: "Total Budget", total_amount: @total_amount %>
              <% if @categories.empty? %>
-             <p class="content-margin" >there are no categories</p>
+             <p class="content-margin text-center" >there are no categories</p>
              <%else%>
              <%@categories.each do |category| %>
-             <div class="d-flex content-margin justify-content-center">
-            <div class="row card-t">
-              <div class="col-3 d-flex justify-content-start">
-                <div class="card-photo">
-                <%= image_tag "cover-photo.jpg", alt: "user", class: "user_image" %>
+          <div class="d-flex content-margin justify-content-center">
+            <div class="row anchor card-t">
+             
+                <div class="col-3 d-flex justify-content-start">
+                    <div class="card-photo">
+                      <%= image_tag "cover-photo.jpg", alt: "user", class: "user_image" %>
+                   </div>
                 </div>
-              </div>
-               <div class="col-9">
-                  <div class="card-body place-items-start ">
-                    <h5 class="card-title"><%= link_to category.name, category_path(category) %></h5>
-                    <p class="card-text text-right">cost:<span class="mx-2"></span></p>
+                <div class="col-9">
+                  <div class="card-body d-flex justify-content-between px-0">
+                     <h5 class="card-title"><%= category.name.capitalize %></h5>
+                     <p class="card-text text-right mx-0">$ <%= category.items.map(&:amount).sum %></span></p>
                   </div>
+                
                 </div>
-            </div>
-            </div>
+                  <span class="trash-fill">
+                     <%= button_to embedded_svg('trash3-fill.svg'), "categories/#{category.id}", method: :delete %>
+                  </span>
+                <a href="<%=category_path(category)%>" ></a>
+              </div>
+             </div>
+             <%end %>
              <%end %>
             <button type="button" class="btn button-pad button-green btn-lg btn-block w-100 fixed-bottom">
             <%= link_to "Create Category", new_category_path, class: "text-decoration-none text-light w-100" %>
             </button>
-             <%end %>
+            </div>
             <% else %>
             <div class="d-flex button-ht flex-column  align-items-center">
             <div class="h-50 d-flex flex-column justify-content-end add-mb">
             <h1 class= "text-center">Budget Planner</h1>
             </div>
             <div class="w-75 h-50 d-flex flex-column justify-content-end add-mb">
-            <button type="button" class="btn btn-primary mb-2 btn-lg btn-block w-100 ">
+            <button type="button" class="btn dark-blue mb-2 btn-lg btn-block w-100 ">
             <%= link_to "Login", new_user_session_path, class: "text-decoration-none text-light w-100" %>
             </button>
-            <button type="button" class="btn btn-light border-primary btn-lg mb-4 btn-block a-w w-100">
+            <button type="button" class="btn btn-light border-blue btn-lg mb-4 btn-block a-w w-100">
             <%= link_to "Sign up", new_user_registration_path, class: "text-decoration-none text-dark w-100" %>
             </button>
             </div>

@@ -2,17 +2,27 @@ class CategoriesController < ApplicationController
   def index
     @author = current_user
     @categories = Category.all
+    @total_amount = @author.items.includes(:category).map(&:amount).sum if user_signed_in? 
   end
 
   def new
       @category = Category.new
   end
 
-   # GET /recipes/1
+   # GET /category/1
    def show
     @category = Category.find(params[:id])
     @items = @category.items
     @total_amount = @items.map(&:amount).sum
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+
+    respond_to do |format|
+      format.html { redirect_to categories_url, notice: 'category was successfully destroyed.' }
+    end
   end
 
   def create
