@@ -1,0 +1,73 @@
+
+            <% if user_signed_in? %>
+              
+             <nav class="navbar navbar-expand-lg fixed-top navbar-dark dark-blue">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand d-flex w-100 brand-a" href="#">categories</a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                    <a class="nav-link"><%= @author.name%></a>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "Create Category", new_category_path, class: "text-decoration-none nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                     <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link"  %>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            <div class="container-custom">
+            <%= render "layouts/total_balance", desc: "Total Budget", total_amount: @total_amount %>
+             <% if current_user.categories.empty? %>
+             <p class="content-margin text-center" >Kindly create a category to start your budget plan</p>
+             <%else%>
+             <%@categories.each do |category| %>
+            <% if can? :read, category%>
+          <div class="d-flex content-margin justify-content-center">
+            <div class="row anchor card-t">
+             
+                <div class="col-3 d-flex justify-content-start">
+                    <div class="card-photo">
+                      <%= image_tag "cover-photo.jpg", alt: "user", class: "user_image" %>
+                   </div>
+                </div>
+                <div class="col-9">
+                  <div class="card-body d-flex justify-content-between px-0">
+                     <h5 class="card-title"><%= category.name.capitalize %></h5>
+                     <p class="card-text text-right mx-0">$ <%= category.items.map(&:amount).sum %></span></p>
+                  </div>
+                
+                </div>
+                  <span class="trash-fill">
+                     <%= button_to embedded_svg('trash3-fill.svg'), "categories/#{category.id}", method: :delete %>
+                  </span>
+                  <%= link_to "link to items", category_path(category)%>
+              </div>
+             </div>
+             <%end %>
+             <%end %>
+             <%end %>
+            <button type="button" class="btn button-pad button-green btn-lg btn-block w-100 fixed-bottom">
+            <%= link_to "Create New Category", new_category_path, class: "text-decoration-none text-light w-100" %>
+            </button>
+            </div>
+            <% else %>
+            <div class="d-flex button-ht flex-column  align-items-center">
+            <div class="h-50 d-flex flex-column justify-content-end add-mb">
+            <h1 class= "text-center">Budget Planner</h1>
+            </div>
+            <div class="w-75 h-50 d-flex flex-column justify-content-end add-mb">
+            <button type="button" class="btn dark-blue mb-2 btn-lg btn-block w-100 ">
+            <%= link_to "Login", new_user_session_path, class: "text-decoration-none text-light w-100" %>
+            </button>
+            <button type="button" class="btn btn-light border-blue btn-lg mb-4 btn-block a-w w-100">
+            <%= link_to "Sign up", new_user_registration_path, class: "text-decoration-none text-dark w-100" %>
+            </button>
+            </div>
+            </div>
+            <% end %>

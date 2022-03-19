@@ -1,0 +1,32 @@
+            <%= render "layouts/nav", check: "Items Page", goto_path: categories_path %>
+            <%= render "layouts/total_balance", desc: "Items Costs", total_amount: @total_amount %>
+            <div class="container-custom">
+             <% if @items.empty? %>
+             <p class="content-margin text-center" >there is no item in this category</p>
+             <%else%>
+             <%@items.each do |item| %>
+            <div class="d-flex content-margin justify-content-center">
+             <div class="row anchor card-t">
+                <div class="col-3 d-flex justify-content-start">
+                    <div class="card-photo">
+                      <%= image_tag "cover-photo.jpg", alt: "user", class: "user_image" %>
+                   </div>
+                </div>
+                <div class="col-9">
+                  <div class="card-body d-flex justify-content-between px-0">
+                     <h5 class="card-title"><%= item.name %></h5>
+                     <p class="card-text text-right mx-0">$ <%= item.amount || 0 %></span></p>
+                  </div>
+                </div>
+                  <span class="trash-fill">
+                     <%= button_to embedded_svg('trash3-fill.svg'), category_item_path(item.category_id, item.id), method: :delete %>
+                  </span>
+                <a href="<%=categories_path%>" ></a>
+              </div>
+             </div>
+             <%end %>
+             <%end %>
+            <button type="button" class="btn button-pad button-green btn-lg btn-block w-100 fixed-bottom">
+            <%= link_to "Add New Item", new_category_item_path(@category.id), class: "text-decoration-none text-light w-100" %>
+            </button>
+            </div>
